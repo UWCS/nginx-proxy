@@ -273,9 +273,10 @@ server {
 {{- end }}
 }
 
-{{- range $host, $containers := groupByMulti $globals.containers "Env.VIRTUAL_HOST" "," }}
+{{- range $host, $containers := groupByMulti $globals.containers "ID" "," }}
 
-    {{- $host := trim $host }}
+    {{- $host := $host[0:12] }}
+    
     {{- $is_regexp := hasPrefix "~" $host }}
     {{- $upstream_name := when (or $is_regexp $globals.sha1_upstream_name) (sha1 $host) $host }}
 
