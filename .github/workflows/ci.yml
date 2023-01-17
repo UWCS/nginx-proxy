@@ -1,4 +1,4 @@
-ame: CI # the name of our workflow is 'CI'
+name: CI # the name of our workflow is 'CI'
 
 # run this workflow when we push to the 'main' branch
 on: 
