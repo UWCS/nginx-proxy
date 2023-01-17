@@ -275,7 +275,7 @@ server {
 
 {{- range $host, $containers := groupByMulti $globals.containers "ID" "," }}
 
-    {{- $host := $host[0:12] }}
+    {{- $host := host[0:12] }}
     
     {{- $is_regexp := hasPrefix "~" $host }}
     {{- $upstream_name := when (or $is_regexp $globals.sha1_upstream_name) (sha1 $host) $host }}
